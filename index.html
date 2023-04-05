@@ -18,9 +18,9 @@
            console.log(data);
            console.log(data.data.name);
            let li = document.createElement('li');
-           let name = document.createElement('h2');
+           let name = document.getElementById('authors');
            let email = document.createElement('span');
-           name.innerHTML = `${authors.name}`;
+           name.innerHTML = `${authors.data.name}`;
            email.innerHTML = `${authors.id}`;
          })
       </script>
