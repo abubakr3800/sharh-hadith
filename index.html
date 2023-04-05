@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-    <h1>Authors</h1>
-    <ul id="authors"></ul>
+    <h1>احاديث</h1>
+    <ul id="myList"></ul>
+
       <script type="text/javascript">
         const url = "https://api.hadith.gading.dev/books/bukhari?range=300-500" ;
         fetch(url)
@@ -16,12 +17,21 @@
          .then((data) => {
            let authors = data;
            console.log(data);
-           console.log(data.data.name);
+           console.log(data.data.hadiths);
+
            let li = document.createElement('li');
-           let name = document.getElementById('authors');
+           let name = document.createElement('h2');
            let email = document.createElement('span');
-           name.innerHTML = `${authors.data.name}`;
-           email.innerHTML = `${authors.id}`;
+
+           let list = document.getElementById("myList");
+
+           data.data.hadiths.forEach((item)=>{
+             let li = document.createElement("li");
+             li.innerText = item.arab + " \n " + item.id;
+             list.appendChild(li);
+
+           })
+
          })
       </script>
   </body>
